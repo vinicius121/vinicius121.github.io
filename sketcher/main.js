@@ -142,10 +142,8 @@ function getClassNames(indices) {
 load the class names 
 */
 async function loadDict() {
-    if (mode == 'ar')
-        loc = 'model2/class_names_ar.txt'
-    else
-        loc = 'model2/class_names.txt'
+
+    loc = 'model3/class_names.txt'
     
     await $.ajax({
         url: loc,
@@ -239,10 +237,6 @@ allow drawing on canvas
 */
 function allowDrawing() {
     canvas.isDrawingMode = 1;
-    if (mode == 'en')
-        document.getElementById('status').innerHTML = 'Model Loaded';
-    else
-        document.getElementById('status').innerHTML = 'تم التحميل';
     $('button').prop('disabled', false);
     var slider = document.getElementById('myRange');
     slider.oninput = function() {
