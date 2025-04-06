@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Point Cloud Visualizer App</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <!-- Optional: Add a favicon link here to avoid the 404 error -->
+    <!-- <link rel="icon" href="assets/favicon.ico" type="image/x-icon"> -->
+</head>
+<body>
+
+    <div id="main-container">
+        <!-- Viewer container where the canvas will be injected -->
+        <div id="viewer-container">
+             <div id="hover-info"></div> <!-- Tooltip for hover info -->
+        </div>
+
+        <!-- UI Control Panel -->
+        <div id="ui-panel">
+            <div class="ui-section">
+                <div class="ui-title">File</div>
+                <label class="button">
+                    Load File
+                    <input type="file" id="file-input" accept=".ply,.txt">
+                </label>
+                <p class="drop-hint">or drag & drop</p>
+            </div>
+
+            <div id="info-panel" class="ui-section">
+                <div class="ui-title">Cloud Info</div>
+                <p>Points: <strong id="point-count">N/A</strong></p>
+                <p>Bounding Box:</p>
+                <p class="bbox-info">Min: <strong id="bbox-min">N/A</strong></p>
+                <p class="bbox-info">Max: <strong id="bbox-max">N/A</strong></p>
+            </div>
+
+            <div class="ui-section">
+                 <div class="ui-title">View Controls</div>
+                 <button id="reset-view-button">Reset View</button>
+                 <div class="control-group">
+                     <label for="point-size-slider">Point Size:</label>
+                     <input type="range" id="point-size-slider" min="0.1" max="5" step="0.1" value="1">
+                     <span id="point-size-value" class="value-display">1.0</span>
+                 </div>
+                 <div class="control-group">
+                     <label for="normals-toggle">Show Normals:</label>
+                     <input type="checkbox" id="normals-toggle" disabled>
+                 </div>
+                 <div class="control-group">
+                     <label for="color-map-toggle">Color by Height:</label>
+                     <input type="checkbox" id="color-map-toggle">
+                 </div>
+            </div>
+
+             <div class="ui-section">
+                 <div class="ui-title">Theme</div>
+                 <div class="control-group">
+                     <label for="theme-toggle">Dark Mode:</label>
+                     <input type="checkbox" id="theme-toggle" checked>
+                 </div>
+            </div>
+        </div>
+
+        <!-- Drag and Drop Overlay -->
+        <div id="drop-zone">
+            Drop .ply or .txt file here
+        </div>
+
+        <!-- Loading Indicator -->
+        <div id="loading-indicator">Loading...</div>
+    </div>
+
+    <!-- Load Three.js Dependencies FIRST -->
+    <!-- Make sure these paths/versions are correct and accessible -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/PLYLoader.js"></script>
+
+    <!-- Main Application Entry Point - type="module" is essential -->
+    <script type="module" src="js/main.js"></script>
+
+</body>
+</html>
