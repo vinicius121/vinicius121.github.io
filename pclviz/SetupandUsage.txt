@@ -1,0 +1,19 @@
+
+## Setup & Usage
+
+1.  **Dependencies:** The application uses [Three.js](https://threejs.org/) loaded via CDN. No build step is required for the basic setup.
+2.  **Running:** Simply open the `index.html` file in a modern web browser (Chrome, Firefox, Edge recommended).
+3.  **Loading Data:**
+    *   Click the "Load File" button and select a `.ply` or `.txt` file.
+    *   Or, drag and drop a compatible file onto the application window.
+4.  **Interaction:**
+    *   **Rotate:** Left-click and drag.
+    *   **Zoom:** Mouse wheel scroll.
+    *   **Pan:** Right-click (or Ctrl+Left-click) and drag.
+    *   Use the controls in the top-left panel to adjust appearance and view options.
+
+## Development Notes
+
+*   The code uses ES6 Modules (`import`/`export`). Ensure your browser supports this or use a build tool (like Vite, Webpack) for older browser compatibility or more complex dependency management.
+*   Error handling is basic; check the browser's developer console for more detailed error messages.
+*   Performance for *very* large point clouds (> 5-10 million points) might degrade depending on the user's hardware. Further optimizations (e.g., level-of-detail, octrees, different rendering techniques) would be needed for massive datasets.
